@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>Financial</name>
+    <name>FactMarketHistory</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -427,13 +428,34 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2015/09/25 15:13:00.748</created_date>
+    <created_date>2015/07/27 11:11:01.915</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2015/09/25 15:13:00.748</modified_date>
+    <modified_date>2015/07/27 11:11:01.915</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Changes in the securityId not being considered</note>
+      <xloc>1536</xloc>
+      <yloc>96</yloc>
+      <width>319</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>tpcdi</name>
@@ -488,148 +510,361 @@
   </connection>
   <order>
     <hop>
-      <from>FINWARE merged</from>
-      <to>Filter rows</to>
+      <from>Sort rows</from>
+      <to>Merge Join date</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows result</from>
-      <to>no</to>
+      <from>DailyMarket.txt</from>
+      <to>Sort rows 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows result</from>
-      <to>yes</to>
+      <from>Select values 2 2</from>
+      <to>Sort rows 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Regex Evaluation</from>
-      <to>Filter rows result</to>
+      <from>DimSecurity</from>
+      <to>Select values 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
-      <to>Sort rows 4</to>
+      <from>Sort rows 3</from>
+      <to>Merge Join DimSecurity</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 2</from>
-      <to>Sort rows 2</to>
+      <from>Merge Join date</from>
+      <to>Merge join Financial</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 3</from>
-      <to>union</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 3 2</from>
-      <to>union</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort CoNameOrCIK</from>
-      <to>Merge Join 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 2</from>
-      <to>Merge Join 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows PTS 2</from>
-      <to>Select values 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 4</from>
-      <to>Merge Join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort CoNameOrCIK 2</from>
-      <to>Merge Join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows PTS</from>
-      <to>Select values 3 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>dimcompany</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>dimcompany</from>
-      <to>Select values 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>no</from>
-      <to>Sort CoNameOrCIK 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>yes</from>
-      <to>Sort CoNameOrCIK</to>
+      <from>Sort rows 2 2</from>
+      <to>Merge Join DimSecurity</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Filter rows</from>
-      <to>Regex Evaluation</to>
+      <to>Sort rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>union</from>
-      <to>Sort rows 7</to>
+      <from>Merge Join DimSecurity</from>
+      <to>Filter rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 7</from>
-      <to>change format</to>
+      <from>Standadize calendarweekid</from>
+      <to>Select values 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>change format</from>
-      <to>Select values 4</to>
+      <from>Get min and max</from>
+      <to>Add Batchid 1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 4</from>
-      <to>schange format to date</to>
+      <from>Financial sorted</from>
+      <to>Merge join 1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>schange format to date</from>
-      <to>Financial</to>
+      <from>Select values 2</from>
+      <to>Merge Join date</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge Join 2</from>
-      <to>Filter date </to>
+      <from>Dates sorted</from>
+      <to>Standadize calendarweekid</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter date </from>
-      <to>Sort rows PTS 2</to>
+      <from>Merge join 1</from>
+      <to>Merge join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge Join</from>
-      <to>Filter date 2</to>
+      <from>Dates sorted</from>
+      <to>Modified JavaScript value</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter date 2</from>
-      <to>Sort rows PTS</to>
+      <from>Modified JavaScript value</from>
+      <to>Merge join 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Financial sorted</from>
+      <to>Merge join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Financial sorted</from>
+      <to>Merge join 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join 4</from>
+      <to>Merge join Financial</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Get min and max</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join 3</from>
+      <to>Merge join 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join 2</from>
+      <to>Merge join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Financial sorted</from>
+      <to>Merge join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2 3</from>
+      <to>Sort rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Compute yield and PERatio</from>
+      <to>Select values 2 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add Batchid 1</from>
+      <to>FactMarketHistory</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Group by</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add value fields changing sequence</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Add value fields changing sequence</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join Financial</from>
+      <to>Compute yield and PERatio</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>FINWARE merged</name>
+    <name>Add Batchid 1</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Batchid</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2496</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add value fields changing sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <start>1</start>
+    <increment>1</increment>
+    <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>sk_securityid</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2032</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Compute yield and PERatio</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>partialyield</field_name>
+      <calc_type>DIVIDE</calc_type>
+      <field_a>dividend</field_a>
+      <field_b>DM_CLOSE</field_b>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>6</value_length>
+      <value_precision>5</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>partial</field_name>
+      <calc_type>ADD3</calc_type>
+      <field_a>fi_net_earn_1</field_a>
+      <field_b>fi_net_earn_2</field_b>
+      <field_c>fi_net_earn_3</field_c>
+      <value_type>BigNumber</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>earning</field_name>
+      <calc_type>ADD</calc_type>
+      <field_a>partial</field_a>
+      <field_b>fi_net_earn</field_b>
+      <field_c/>
+      <value_type>BigNumber</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>PERatio</field_name>
+      <calc_type>DIVIDE</calc_type>
+      <field_a>DM_CLOSE</field_a>
+      <field_b>earning</field_b>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>10</value_length>
+      <value_precision>9</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>hundred</field_name>
+      <calc_type>CONSTANT</calc_type>
+      <field_a>100.0</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>6</value_length>
+      <value_precision>3</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>yield</field_name>
+      <calc_type>MULTIPLY</calc_type>
+      <field_a>hundred</field_a>
+      <field_b>partialyield</field_b>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>6</value_length>
+      <value_precision>3</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1600</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DailyMarket.txt</name>
     <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -643,11 +878,11 @@
     <passing_through_fields>N</passing_through_fields>
     <accept_field/>
     <accept_stepname/>
-    <separator>;</separator>
+    <separator>|</separator>
     <enclosure>"</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
     <escapechar/>
-    <header>Y</header>
+    <header>N</header>
     <nr_headerlines>1</nr_headerlines>
     <footer>N</footer>
     <nr_footerlines>1</nr_footerlines>
@@ -662,204 +897,39 @@
     <rownum>N</rownum>
     <rownumByFile>N</rownumByFile>
     <rownum_field/>
-    <format>Unix</format>
+    <format>DOS</format>
     <encoding/>
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${tpcdi.input.path}/Batch1/merged.txt</name>
+      <name>${tpcdi.input.path}/Batch1/DailyMarket.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>Y</file_required>
       <include_subfolders>N</include_subfolders>
-      <type>Fixed</type>
+      <type>CSV</type>
       <compression>None</compression>
     </file>
     <filters>
     </filters>
     <fields>
       <field>
-        <name>RecType</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>15</position>
-        <length>3</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Year</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>18</position>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Quarter</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>22</position>
-        <length>1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>QtrStartDate</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>23</position>
-        <length>8</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>PostingDate</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>31</position>
-        <length>8</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Revenue</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>39</position>
-        <length>17</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Earnings</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>56</position>
-        <length>17</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>EPS</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>73</position>
-        <length>12</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>DilutedEPS</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>85</position>
-        <length>12</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Margin</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>97</position>
-        <length>12</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Inventory</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>109</position>
-        <length>17</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>PTS</name>
+        <name>DM_DATE</name>
         <type>Date</type>
-        <format>yyyyMMddHHmmss</format>
+        <format>yyyy-MM-dd</format>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
         <ifnull/>
-        <position>0</position>
-        <length>15</length>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Assets</name>
+        <name>DM_S_SYMB</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -867,79 +937,79 @@
         <group/>
         <nullif/>
         <ifnull/>
-        <position>126</position>
-        <length>17</length>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Liabilities</name>
-        <type>String</type>
+        <name>DM_CLOSE</name>
+        <type>Number</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
         <ifnull/>
-        <position>143</position>
-        <length>17</length>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>ShOut</name>
-        <type>String</type>
+        <name>DM_HIGH</name>
+        <type>Number</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
         <ifnull/>
-        <position>160</position>
-        <length>13</length>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>DilutedShOut</name>
-        <type>String</type>
+        <name>DM_LOW</name>
+        <type>Number</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
         <ifnull/>
-        <position>173</position>
-        <length>13</length>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>CoNameOrCIK</name>
-        <type>String</type>
+        <name>DM_VOL</name>
+        <type>Integer</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
         <ifnull/>
-        <position>186</position>
-        <length>60</length>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
     </fields>
     <limit>0</limit>
-    <error_ignored>Y</error_ignored>
+    <error_ignored>N</error_ignored>
     <skip_bad_files>N</skip_bad_files>
     <file_error_field/>
     <file_error_message_field/>
-    <error_line_skipped>Y</error_line_skipped>
+    <error_line_skipped>N</error_line_skipped>
     <error_count_field/>
     <error_fields_field/>
     <error_text_field/>
@@ -968,44 +1038,38 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>187</xloc>
-      <yloc>248</yloc>
+      <xloc>256</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter date </name>
-    <type>FilterRows</type>
+    <name>Dates sorted</name>
+    <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Sort rows PTS 2</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>PTS</leftvalue>
-            <function>&gt;=</function>
-            <rightvalue>effectivedate</rightvalue>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>PTS</leftvalue>
-            <function>&lt;</function>
-            <rightvalue>enddate</rightvalue>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
+    <connection>tpcdi</connection>
+    <sql>SELECT
+ d.sk_dateid
+, d.fiscalyearid 
+, d.fiscalqtrid
+, d.calendarweekid
+, d.calendarqtrid
+, d.datevalue
+FROM dimdate d
+order by d.fiscalyearid, d.fiscalqtrid, d.datevalue;
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1015,14 +1079,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>919</xloc>
-      <yloc>31</yloc>
+      <xloc>816</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter date 2</name>
-    <type>FilterRows</type>
+    <name>DimSecurity</name>
+    <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1031,28 +1095,13 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Sort rows PTS</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>PTS</leftvalue>
-            <function>&gt;=</function>
-            <rightvalue>effectivedate</rightvalue>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>PTS</leftvalue>
-            <function>&lt;</function>
-            <rightvalue>enddate</rightvalue>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
+    <connection>tpcdi</connection>
+    <sql>SELECT * FROM dimsecurity</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1062,101 +1111,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>921</xloc>
-      <yloc>428</yloc>
+      <xloc>496</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Regex Evaluation</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>RecType</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>FIN</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>293</xloc>
-      <yloc>247</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows result</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>yes</send_true_to>
-    <send_false_to>no</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>result</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>Boolean</type>
-          <text>Y</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>559</xloc>
-      <yloc>249</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Financial</name>
+    <name>FactMarketHistory</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1167,8 +1128,8 @@
       <schema_name/>
     </partitioning>
     <connection>tpcdi</connection>
-    <schema/>
-    <table>financial</table>
+    <schema>public</schema>
+    <table>factmarkethistory</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -1185,60 +1146,60 @@
     <return_field/>
     <fields>
       <field>
+        <column_name>sk_dateid</column_name>
+        <stream_name>sk_dateid</stream_name>
+      </field>
+      <field>
+        <column_name>closeprice</column_name>
+        <stream_name>closeprice</stream_name>
+      </field>
+      <field>
+        <column_name>dayhigh</column_name>
+        <stream_name>dayhigh</stream_name>
+      </field>
+      <field>
+        <column_name>daylow</column_name>
+        <stream_name>daylow</stream_name>
+      </field>
+      <field>
+        <column_name>volume</column_name>
+        <stream_name>volume</stream_name>
+      </field>
+      <field>
+        <column_name>sk_securityid</column_name>
+        <stream_name>sk_securityid</stream_name>
+      </field>
+      <field>
         <column_name>sk_companyid</column_name>
         <stream_name>sk_companyid</stream_name>
       </field>
       <field>
-        <column_name>fi_year</column_name>
-        <stream_name>Year1</stream_name>
+        <column_name>batchid</column_name>
+        <stream_name>Batchid</stream_name>
       </field>
       <field>
-        <column_name>fi_qtr</column_name>
-        <stream_name>Quarter1</stream_name>
+        <column_name>yield</column_name>
+        <stream_name>yield</stream_name>
       </field>
       <field>
-        <column_name>fi_qtr_start_date</column_name>
-        <stream_name>QtrStartDate</stream_name>
+        <column_name>fiftytwoweekhigh</column_name>
+        <stream_name>dayhigh_max</stream_name>
       </field>
       <field>
-        <column_name>fi_revenue</column_name>
-        <stream_name>Revenue1</stream_name>
+        <column_name>fiftytwoweeklow</column_name>
+        <stream_name>daylow_min</stream_name>
       </field>
       <field>
-        <column_name>fi_net_earn</column_name>
-        <stream_name>Earnings1</stream_name>
+        <column_name>sk_fiftytwoweek</column_name>
+        <stream_name>sk_dateid_max</stream_name>
       </field>
       <field>
-        <column_name>fi_basic_eps</column_name>
-        <stream_name>EPS1</stream_name>
+        <column_name>sk_fiftytwoweekl</column_name>
+        <stream_name>sk_dateid_min</stream_name>
       </field>
       <field>
-        <column_name>fi_dilut_eps</column_name>
-        <stream_name>DilutedEPS1</stream_name>
-      </field>
-      <field>
-        <column_name>fi_margin</column_name>
-        <stream_name>Margin1</stream_name>
-      </field>
-      <field>
-        <column_name>fi_inventory</column_name>
-        <stream_name>Inventory1</stream_name>
-      </field>
-      <field>
-        <column_name>fi_assets</column_name>
-        <stream_name>Assets1</stream_name>
-      </field>
-      <field>
-        <column_name>fi_liability</column_name>
-        <stream_name>Liabilities1</stream_name>
-      </field>
-      <field>
-        <column_name>fi_out_basic</column_name>
-        <stream_name>ShOut1</stream_name>
-      </field>
-      <field>
-        <column_name>fi_out_dilut</column_name>
-        <stream_name>DilutedShOut1</stream_name>
+        <column_name>peratio</column_name>
+        <stream_name>PERatio</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -1250,14 +1211,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1685</xloc>
-      <yloc>241</yloc>
+      <xloc>2608</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Merge Join</name>
-    <type>MergeJoin</type>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1266,15 +1227,28 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>INNER</join_type>
-    <step1>Sort rows 4</step1>
-    <step2>Sort CoNameOrCIK 2</step2>
-    <keys_1>
-      <key>nameComp</key>
-    </keys_1>
-    <keys_2>
-      <key>CoNameOrCIK</key>
-    </keys_2>
+    <send_true_to>Sort rows</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>DM_DATE</leftvalue>
+            <function>&gt;=</function>
+            <rightvalue>effectivedate</rightvalue>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>DM_DATE</leftvalue>
+            <function>&lt;</function>
+            <rightvalue>enddate</rightvalue>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1284,31 +1258,36 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>844</xloc>
-      <yloc>428</yloc>
+      <xloc>624</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Merge Join 2</name>
-    <type>MergeJoin</type>
+    <name>Financial sorted</name>
+    <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>INNER</join_type>
-    <step1>Sort rows 2</step1>
-    <step2>Sort CoNameOrCIK</step2>
-    <keys_1>
-      <key>companyid</key>
-    </keys_1>
-    <keys_2>
-      <key>CoNameOrCIK</key>
-    </keys_2>
+    <connection>tpcdi</connection>
+    <sql>SELECT
+ fi.sk_companyid
+, fi.fi_net_earn
+, fi.fi_year
+, fi.fi_qtr 
+from financial fi
+order by fi.fi_year, fi.fi_qtr, fi.sk_companyid;
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1318,686 +1297,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>843</xloc>
-      <yloc>30</yloc>
+      <xloc>1296</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Regex Evaluation</name>
-    <type>RegexEval</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <script>^[0-9]*$</script>
-    <matcher>CoNameOrCIK</matcher>
-    <resultfieldname>result</resultfieldname>
-    <usevar>N</usevar>
-    <allowcapturegroups>N</allowcapturegroups>
-    <replacefields>Y</replacefields>
-    <canoneq>N</canoneq>
-    <caseinsensitive>N</caseinsensitive>
-    <comment>N</comment>
-    <dotall>N</dotall>
-    <multiline>N</multiline>
-    <unicode>N</unicode>
-    <unix>N</unix>
-    <fields>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>455</xloc>
-      <yloc>249</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>sk_companyid</name>
-        <rename/>
-      </field>
-      <field>
-        <name>namecomp</name>
-        <rename/>
-      </field>
-      <field>
-        <name>effectivedate</name>
-        <rename/>
-      </field>
-      <field>
-        <name>enddate</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>843</xloc>
-      <yloc>306</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>sk_companyid</name>
-      </field>
-      <field>
-        <name>companyid</name>
-      </field>
-      <field>
-        <name>effectivedate</name>
-      </field>
-      <field>
-        <name>enddate</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>846</xloc>
-      <yloc>184</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 3</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>sk_companyid</name>
-      </field>
-      <field>
-        <name>RecType</name>
-      </field>
-      <field>
-        <name>Year</name>
-      </field>
-      <field>
-        <name>Quarter</name>
-      </field>
-      <field>
-        <name>QtrStartDate</name>
-      </field>
-      <field>
-        <name>PostingDate</name>
-      </field>
-      <field>
-        <name>Revenue</name>
-      </field>
-      <field>
-        <name>Earnings</name>
-      </field>
-      <field>
-        <name>EPS</name>
-      </field>
-      <field>
-        <name>DilutedEPS</name>
-      </field>
-      <field>
-        <name>Margin</name>
-      </field>
-      <field>
-        <name>Inventory</name>
-      </field>
-      <field>
-        <name>PTS</name>
-      </field>
-      <field>
-        <name>Assets</name>
-      </field>
-      <field>
-        <name>Liabilities</name>
-      </field>
-      <field>
-        <name>ShOut</name>
-      </field>
-      <field>
-        <name>DilutedShOut</name>
-      </field>
-      <field>
-        <name>CoNameOrCIK</name>
-      </field>
-      <field>
-        <name>result</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>999</xloc>
-      <yloc>130</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 3 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>sk_companyid</name>
-      </field>
-      <field>
-        <name>RecType</name>
-      </field>
-      <field>
-        <name>Year</name>
-      </field>
-      <field>
-        <name>Quarter</name>
-      </field>
-      <field>
-        <name>QtrStartDate</name>
-      </field>
-      <field>
-        <name>PostingDate</name>
-      </field>
-      <field>
-        <name>Revenue</name>
-      </field>
-      <field>
-        <name>Earnings</name>
-      </field>
-      <field>
-        <name>EPS</name>
-      </field>
-      <field>
-        <name>DilutedEPS</name>
-      </field>
-      <field>
-        <name>Margin</name>
-      </field>
-      <field>
-        <name>Inventory</name>
-      </field>
-      <field>
-        <name>PTS</name>
-      </field>
-      <field>
-        <name>Assets</name>
-      </field>
-      <field>
-        <name>Liabilities</name>
-      </field>
-      <field>
-        <name>ShOut</name>
-      </field>
-      <field>
-        <name>DilutedShOut</name>
-      </field>
-      <field>
-        <name>CoNameOrCIK</name>
-      </field>
-      <field>
-        <name>result</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1007</xloc>
-      <yloc>318</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 4</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>sk_companyid</name>
-      </field>
-      <field>
-        <name>RecType</name>
-      </field>
-      <field>
-        <name>QtrStartDate</name>
-      </field>
-      <field>
-        <name>PostingDate</name>
-      </field>
-      <field>
-        <name>PTS</name>
-      </field>
-      <field>
-        <name>CoNameOrCIK</name>
-      </field>
-      <field>
-        <name>result</name>
-      </field>
-      <field>
-        <name>Year1</name>
-      </field>
-      <field>
-        <name>Quarter1</name>
-      </field>
-      <field>
-        <name>Revenue1</name>
-      </field>
-      <field>
-        <name>Earnings1</name>
-      </field>
-      <field>
-        <name>EPS1</name>
-      </field>
-      <field>
-        <name>DilutedEPS1</name>
-      </field>
-      <field>
-        <name>Margin1</name>
-      </field>
-      <field>
-        <name>Inventory1</name>
-      </field>
-      <field>
-        <name>Assets1</name>
-      </field>
-      <field>
-        <name>Liabilities1</name>
-      </field>
-      <field>
-        <name>ShOut1</name>
-      </field>
-      <field>
-        <name>DilutedShOut1</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1417</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort CoNameOrCIK</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>CoNameOrCIK</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>744</xloc>
-      <yloc>31</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort CoNameOrCIK 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>CoNameOrCIK</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>741</xloc>
-      <yloc>431</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>companyid</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>847</xloc>
-      <yloc>114</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 4</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>nameComp</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>840</xloc>
-      <yloc>365</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 7</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>PTS</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1187</xloc>
-      <yloc>238</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows PTS</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>PTS</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1006</xloc>
-      <yloc>426</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows PTS 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>PTS</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>997</xloc>
-      <yloc>29</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>change format</name>
+    <name>Get min and max</name>
     <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
@@ -2015,128 +1321,61 @@
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-var Year1
-var Quarter1
-var Revenue1
-var Earnings1
-var EPS1
-var DilutedEPS1
-var Margin1
-var Inventory1
-var Assets1
-var Liabilities1
-var ShOut1
-var DilutedShOut1
+var calendarweekid_split = calendarweekid_concat.split(";");
+var sk_dateid_split = sk_dateid_concat.split(";");
+var dayhigh_split = dayhigh_concat.split(";");
+var daylow_split = daylow_concat.split(";");
+var i=(sequence>366)?sequence-366:0;
+var dayhigh_max=-1, daylow_min=-1;
+var sk_dateid_max=0, sk_dateid_min=0;
 
-Quarter1 = parseInt (Quarter)
-Year1 = parseFloat (Year)
-Revenue1 = parseFloat (Revenue)
-Earnings1 = parseFloat (Earnings)
-EPS1 = parseFloat (EPS)
-DilutedEPS1 = parseFloat (DilutedEPS)
-Margin1 = parseFloat (Margin)
-Inventory1 = parseFloat (Inventory) 
-Assets1 = parseFloat (Assets)
-Liabilities1 = parseFloat (Liabilities)
-ShOut1 = parseFloat (ShOut)
-DilutedShOut1 = parseFloat (DilutedShOut);</jsScript_script>
+while (i&lt;calendarweekid_split.length &amp;&amp; str2num(calendarweekid_split[i])&lt;=calendarweekid) {
+	if (sk_dateid>=str2num(sk_dateid_split[i]) &amp;&amp; calendarweekid-52&lt;str2num(calendarweekid_split[i])) {
+		if (sk_dateid_max==0 || str2num(dayhigh_split[i])>dayhigh_max) {
+			dayhigh_max=str2num(dayhigh_split[i]);
+			sk_dateid_max=str2num(sk_dateid_split[i]);
+			}
+		if (sk_dateid_min==0 || str2num(daylow_split[i])&lt;daylow_min) {
+			daylow_min=str2num(daylow_split[i]);
+			sk_dateid_min=str2num(sk_dateid_split[i]);
+			}
+		}
+	i++;
+	}
+</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
       <field>
-        <name>Year1</name>
-        <rename>Year1</rename>
+        <name>dayhigh_max</name>
+        <rename>dayhigh_max</rename>
         <type>Number</type>
         <length>16</length>
         <precision>2</precision>
         <replace>N</replace>
       </field>
       <field>
-        <name>Quarter1</name>
-        <rename>Quarter1</rename>
+        <name>daylow_min</name>
+        <rename>daylow_min</rename>
         <type>Number</type>
         <length>16</length>
         <precision>2</precision>
         <replace>N</replace>
       </field>
       <field>
-        <name>Revenue1</name>
-        <rename>Revenue1</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
+        <name>sk_dateid_max</name>
+        <rename>sk_dateid_max</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
         <replace>N</replace>
       </field>
       <field>
-        <name>Earnings1</name>
-        <rename>Earnings1</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>EPS1</name>
-        <rename>EPS1</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>DilutedEPS1</name>
-        <rename>DilutedEPS1</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>Margin1</name>
-        <rename>Margin1</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>Inventory1</name>
-        <rename>Inventory1</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>Assets1</name>
-        <rename>Assets1</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>Liabilities1</name>
-        <rename>Liabilities1</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>ShOut1</name>
-        <rename>ShOut1</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>DilutedShOut1</name>
-        <rename>DilutedShOut1</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
+        <name>sk_dateid_min</name>
+        <rename>sk_dateid_min</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
         <replace>N</replace>
       </field>
     </fields>
@@ -2149,53 +1388,14 @@ DilutedShOut1 = parseFloat (DilutedShOut);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1298</xloc>
-      <yloc>239</yloc>
+      <xloc>2368</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>dimcompany</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>tpcdi</connection>
-    <sql>SELECT
-  sk_companyid
-, companyid
-, effectivedate
-, enddate
-, "name" as nameComp
-FROM dimcompany
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>846</xloc>
-      <yloc>243</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>no</name>
-    <type>Dummy</type>
+    <name>Group by</name>
+    <type>GroupBy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2204,6 +1404,45 @@ FROM dimcompany
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <all_rows>N</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore/>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>N</add_linenr>
+    <linenr_fieldname/>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>sk_securityid</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>sk_dateid_concat</aggregate>
+        <subject>sk_dateid</subject>
+        <type>CONCAT_STRING</type>
+        <valuefield>;</valuefield>
+      </field>
+      <field>
+        <aggregate>calendarweekid_concat</aggregate>
+        <subject>calendarweekid</subject>
+        <type>CONCAT_STRING</type>
+        <valuefield>;</valuefield>
+      </field>
+      <field>
+        <aggregate>dayhigh_concat</aggregate>
+        <subject>dayhigh</subject>
+        <type>CONCAT_STRING</type>
+        <valuefield>;</valuefield>
+      </field>
+      <field>
+        <aggregate>daylow_concat</aggregate>
+        <subject>daylow</subject>
+        <type>CONCAT_STRING</type>
+        <valuefield>;</valuefield>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2213,13 +1452,422 @@ FROM dimcompany
       </output>
     </remotesteps>
     <GUI>
-      <xloc>653</xloc>
-      <yloc>428</yloc>
+      <xloc>2032</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>schange format to date</name>
+    <name>Merge Join DimSecurity</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Sort rows 3</step1>
+    <step2>Sort rows 2 2</step2>
+    <keys_1>
+      <key>DM_S_SYMB</key>
+    </keys_1>
+    <keys_2>
+      <key>symbol</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge Join date</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Sort rows</step1>
+    <step2>Select values 2</step2>
+    <keys_1>
+      <key>DM_DATE</key>
+    </keys_1>
+    <keys_2>
+      <key>datevalue</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Add value fields changing sequence</step1>
+    <step2>Group by</step2>
+    <keys_1>
+      <key>sk_securityid</key>
+    </keys_1>
+    <keys_2>
+      <key>sk_securityid</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2128</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join 1</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Modified JavaScript value</step1>
+    <step2>Financial sorted</step2>
+    <keys_1>
+      <key>y_minus1</key>
+      <key>q_minus1</key>
+    </keys_1>
+    <keys_2>
+      <key>fi_year</key>
+      <key>fi_qtr</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join 2</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Merge join 1</step1>
+    <step2>Financial sorted</step2>
+    <keys_1>
+      <key>y_minus2</key>
+      <key>q_minus2</key>
+      <key>sk_companyid</key>
+    </keys_1>
+    <keys_2>
+      <key>fi_year</key>
+      <key>fi_qtr</key>
+      <key>sk_companyid</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1232</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join 3</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Merge join 2</step1>
+    <step2>Financial sorted</step2>
+    <keys_1>
+      <key>y_minus3</key>
+      <key>q_minus3</key>
+      <key>sk_companyid</key>
+    </keys_1>
+    <keys_2>
+      <key>fi_year</key>
+      <key>fi_qtr</key>
+      <key>sk_companyid</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1344</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join 4</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Merge join 3</step1>
+    <step2>Financial sorted</step2>
+    <keys_1>
+      <key>y_minus4</key>
+      <key>q_minus4</key>
+      <key>sk_companyid</key>
+    </keys_1>
+    <keys_2>
+      <key>fi_year</key>
+      <key>fi_qtr</key>
+      <key>sk_companyid</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join Financial</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Merge Join date</step1>
+    <step2>Merge join 4</step2>
+    <keys_1>
+      <key>sk_dateid</key>
+      <key>sk_companyid</key>
+    </keys_1>
+    <keys_2>
+      <key>sk_dateid</key>
+      <key>sk_companyid</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Modified JavaScript value</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+switch(fiscalqtrid%10) {
+  case 1:
+	var y_minus1=fiscalyearid-1, y_minus2=fiscalyearid-1, y_minus3=fiscalyearid-1, y_minus4=fiscalyearid-1;
+	var q_minus1=4, q_minus2=3, q_minus3=2, q_minus4=1;
+    break;
+  case 2:
+	var y_minus1=fiscalyearid, y_minus2=fiscalyearid-1, y_minus3=fiscalyearid-1, y_minus4=fiscalyearid-1;
+	var q_minus1=1, q_minus2=4, q_minus3=3, q_minus4=2;
+    break;
+  case 3:
+	var y_minus1=fiscalyearid, y_minus2=fiscalyearid, y_minus3=fiscalyearid-1, y_minus4=fiscalyearid-1;
+	var q_minus1=2, q_minus2=1, q_minus3=4, q_minus4=3;
+    break;
+  case 4:
+	var y_minus1=fiscalyearid, y_minus2=fiscalyearid, y_minus3=fiscalyearid, y_minus4=fiscalyearid-1;
+	var q_minus1=3, q_minus2=2, q_minus3=1, q_minus4=4;
+    break;
+
+
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>y_minus1</name>
+        <rename>y_minus1</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>y_minus2</name>
+        <rename>y_minus2</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>y_minus3</name>
+        <rename>y_minus3</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>y_minus4</name>
+        <rename>y_minus4</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>q_minus1</name>
+        <rename>q_minus1</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>q_minus2</name>
+        <rename>q_minus2</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>q_minus3</name>
+        <rename>q_minus3</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>q_minus4</name>
+        <rename>q_minus4</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -2231,30 +1879,105 @@ FROM dimcompany
     </partitioning>
     <fields>
       <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>sk_securityid_1</name>
+      </remove>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2240</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>sk_dateid</name>
+      </field>
+      <field>
+        <name>datevalue</name>
+      </field>
+      <field>
+        <name>calendarweekid</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>sk_securityid</name>
+        <rename/>
+      </field>
+      <field>
+        <name>symbol</name>
+        <rename/>
+      </field>
+      <field>
+        <name>effectivedate</name>
+        <rename/>
+      </field>
+      <field>
+        <name>enddate</name>
+        <rename/>
+      </field>
+      <field>
+        <name>sk_companyid</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dividend</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
       <meta>
-        <name>QtrStartDate</name>
-        <rename>QtrStartDate</rename>
-        <type>Date</type>
-        <length>8</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyyMMdd</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>PostingDate</name>
-        <rename>PostingDate</rename>
-        <type>Date</type>
-        <length>8</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyyMMdd</conversion_mask>
+        <name>dividend</name>
+        <rename>dividend</rename>
+        <type>Number</type>
+        <length>3</length>
+        <precision>1</precision>
+        <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
@@ -2275,22 +1998,59 @@ FROM dimcompany
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1551</xloc>
-      <yloc>238</yloc>
+      <xloc>496</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>union</name>
-    <type>Dummy</type>
+    <name>Select values 2 3</name>
+    <type>SelectValues</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <fields>
+      <field>
+        <name>sk_securityid</name>
+      </field>
+      <field>
+        <name>calendarweekid</name>
+      </field>
+      <field>
+        <name>sk_companyid</name>
+      </field>
+      <field>
+        <name>DM_CLOSE</name>
+        <rename>closeprice</rename>
+      </field>
+      <field>
+        <name>DM_HIGH</name>
+        <rename>dayhigh</rename>
+      </field>
+      <field>
+        <name>DM_LOW</name>
+        <rename>daylow</rename>
+      </field>
+      <field>
+        <name>DM_VOL</name>
+        <rename>volume</rename>
+      </field>
+      <field>
+        <name>yield</name>
+      </field>
+      <field>
+        <name>sk_dateid</name>
+      </field>
+      <field>
+        <name>PERatio</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2300,14 +2060,14 @@ FROM dimcompany
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1075</xloc>
-      <yloc>239</yloc>
+      <xloc>1744</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>yes</name>
-    <type>Dummy</type>
+    <name>Sort rows</name>
+    <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2316,6 +2076,31 @@ FROM dimcompany
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>DM_DATE</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>sk_companyid</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2325,8 +2110,195 @@ FROM dimcompany
       </output>
     </remotesteps>
     <GUI>
-      <xloc>659</xloc>
-      <yloc>31</yloc>
+      <xloc>704</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 2 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>symbol</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>DM_S_SYMB</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>sk_securityid</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>sk_dateid</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1888</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Standadize calendarweekid</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+calendarweekid=""+calendarweekid;
+if (calendarweekid.length==5) {
+    if (calendarqtrid%10==1) {
+	    calendarweekid=calendarweekid.substr(0,4)+"0"+calendarweekid.substr(4,1);
+		}
+    if (calendarqtrid%10==4) {
+	    calendarweekid=""+(str2num(calendarweekid.substr(0,4))+1)+"01";
+		}
+	}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>calendarweekid</name>
+        <rename>calendarweekid</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>factcashbalancies</name>
+    <name>FactWatches</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -427,9 +428,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2015/09/11 10:07:38.236</created_date>
+    <created_date>2015/07/27 11:11:01.915</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2015/09/11 10:07:38.236</modified_date>
+    <modified_date>2015/07/27 11:11:01.915</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -488,83 +489,144 @@
   </connection>
   <order>
     <hop>
-      <from>CashTransactions</from>
-      <to>Sort CT_CA_ID</to>
+      <from>Add Batchid 1</from>
+      <to>FactWhatches</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort CT_CA_ID</from>
-      <to>Merge Join accID</to>
+      <from>Sort by W_C_ID</from>
+      <to>Merge join</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Calculator</from>
-      <to>Sort rows date</to>
+      <from>Merge join</from>
+      <to>Sort by W_S_SYM, W_C_ID and W_DTS</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows date</from>
-      <to>Merge Join date</to>
+      <from>Sort by W_S_SYM, W_C_ID and W_DTS</from>
+      <to>Merge join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Calculate sum</from>
-      <to>Select values 3</to>
+      <from>DimCustomer sorted</from>
+      <to>Merge join</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge Join date</from>
-      <to>Calculate sum</to>
+      <from>DimSecurity ordered</from>
+      <to>Merge join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge Join accID</from>
-      <to>Filter rows date</to>
+      <from>Sort by date</from>
+      <to>Merge join 4</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows date</from>
-      <to>Calculator</to>
+      <from>Merge join 4</from>
+      <to>Sort by W_C_ID</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows</from>
-      <to>Cumulative sum</to>
+      <from>DailyMarket.txt</from>
+      <to>Remove Time</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Cumulative sum</from>
-      <to>Add constants</to>
+      <from>Remove Time</from>
+      <to>Sort by date</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add constants</from>
-      <to>FactCashBalancies</to>
+      <from>Merge join 3</from>
+      <to>Add Batchid 1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 3</from>
-      <to>Unique rows</to>
+      <from>DimDate sorted</from>
+      <to>Remove Time 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Unique rows</from>
-      <to>Sort rows</to>
+      <from>Remove Time 2</from>
+      <to>Merge join 4</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>DimDate ordered</from>
-      <to>Merge Join date</to>
+      <from>Merge join 2</from>
+      <to>Filter rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>DimAccount ordered</from>
-      <to>Merge Join accID</to>
+      <from>ACTV</from>
+      <to>Merge join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CNCL</from>
+      <to>Merge join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Sort by  security, customer, date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort by  security, customer, date</from>
+      <to>Switch W_ACTION</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch W_ACTION</from>
+      <to>ACTV</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch W_ACTION</from>
+      <to>CNCL</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Add constants</name>
+    <name>ACTV</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <start>1</start>
+    <increment>1</increment>
+    <resultfieldName>sequence</resultfieldName>
+    <fields>
+      <field>
+        <name>sk_securityid</name>
+      </field>
+      <field>
+        <name>sk_customerid</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1072</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add Batchid 1</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -597,14 +659,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1211</xloc>
-      <yloc>265</yloc>
+      <xloc>1200</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Calculate sum</name>
-    <type>GroupBy</type>
+    <name>CNCL</name>
+    <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -613,28 +675,15 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <all_rows>Y</all_rows>
-    <ignore_aggregate>N</ignore_aggregate>
-    <field_ignore/>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>grp</prefix>
-    <add_linenr>N</add_linenr>
-    <linenr_fieldname/>
-    <give_back_row>N</give_back_row>
-    <group>
-      <field>
-        <name>date</name>
-      </field>
-      <field>
-        <name>accountid</name>
-      </field>
-    </group>
+    <start>1</start>
+    <increment>1</increment>
+    <resultfieldName>sequence</resultfieldName>
     <fields>
       <field>
-        <aggregate>CT_AMT_sum</aggregate>
-        <subject>CT_AMT</subject>
-        <type>SUM</type>
-        <valuefield/>
+        <name>sk_securityid</name>
+      </field>
+      <field>
+        <name>sk_customerid</name>
       </field>
     </fields>
     <attributes/>
@@ -646,57 +695,16 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>748</xloc>
-      <yloc>264</yloc>
+      <xloc>1072</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Calculator</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <failIfNoFile>N</failIfNoFile>
-    <calculation>
-      <field_name>date</field_name>
-      <calc_type>REMOVE_TIME_FROM_DATE</calc_type>
-      <field_a>CT_DTS</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>None</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>451</xloc>
-      <yloc>264</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>CashTransactions</name>
+    <name>DailyMarket.txt</name>
     <type>TextFileInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -731,7 +739,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${tpcdi.input.path}/Batch1/CashTransaction.txt</name>
+      <name>${tpcdi.input.path}/Batch1/WatchHistory.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>Y</file_required>
@@ -743,27 +751,12 @@
     </filters>
     <fields>
       <field>
-        <name>CT_CA_ID</name>
+        <name>W_C_ID</name>
         <type>Integer</type>
         <format>#</format>
         <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>CT_DTS</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd HH:mm:ss</format>
-        <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
+        <decimal/>
+        <group/>
         <nullif/>
         <ifnull/>
         <position>-1</position>
@@ -773,31 +766,46 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>CT_AMT</name>
-        <type>Number</type>
-        <format>#.#</format>
+        <name>W_S_SYM</name>
+        <type>String</type>
+        <format/>
         <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
+        <decimal/>
+        <group/>
         <nullif/>
         <ifnull/>
         <position>-1</position>
         <length>15</length>
-        <precision>2</precision>
+        <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>CT_NAME</name>
-        <type>String</type>
-        <format/>
+        <name>W_DTS</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd HH:mm:ss</format>
         <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
+        <decimal/>
+        <group/>
         <nullif/>
         <ifnull/>
         <position>-1</position>
-        <length>100</length>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>W_ACTION</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>4</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -837,14 +845,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>41</xloc>
-      <yloc>265</yloc>
+      <xloc>48</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Cumulative sum</name>
-    <type>GroupBy</type>
+    <name>DimCustomer sorted</name>
+    <type>TableInput</type>
     <description/>
     <distribute>N</distribute>
     <custom_distribution/>
@@ -853,62 +861,12 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <all_rows>Y</all_rows>
-    <ignore_aggregate>N</ignore_aggregate>
-    <field_ignore/>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>grp</prefix>
-    <add_linenr>N</add_linenr>
-    <linenr_fieldname/>
-    <give_back_row>Y</give_back_row>
-    <group>
-      <field>
-        <name>sk_accountid</name>
-      </field>
-    </group>
-    <fields>
-      <field>
-        <aggregate>sum</aggregate>
-        <subject>CT_AMT_sum</subject>
-        <type>CUM_SUM</type>
-        <valuefield/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1101</xloc>
-      <yloc>264</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DimAccount ordered</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
     <connection>tpcdi</connection>
     <sql>SELECT
-  sk_accountid
-, accountid
-, sk_brokerid
-, sk_customerid
-, effectivedate
-, enddate
-FROM dimaccount
-ORDER BY accountid
+  sk_customerid
+, customerid
+FROM dimcustomer
+order by customerid
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -924,16 +882,16 @@ ORDER BY accountid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>263</xloc>
-      <yloc>17</yloc>
+      <xloc>400</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>DimDate ordered</name>
+    <name>DimDate sorted</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -941,7 +899,12 @@ ORDER BY accountid
       <schema_name/>
     </partitioning>
     <connection>tpcdi</connection>
-    <sql>SELECT sk_dateid, datevalue FROM dimdate ORDER BY datevalue;</sql>
+    <sql>SELECT
+  sk_dateid
+, datevalue
+FROM dimdate
+order by datevalue
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -956,13 +919,52 @@ ORDER BY accountid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>637</xloc>
-      <yloc>27</yloc>
+      <xloc>192</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>FactCashBalancies</name>
+    <name>DimSecurity ordered</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>tpcdi</connection>
+    <sql>SELECT
+  sk_securityid
+, symbol
+, effectivedate
+, enddate
+FROM dimsecurity
+order by symbol, effectivedate;
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>FactWhatches</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -973,8 +975,8 @@ ORDER BY accountid
       <schema_name/>
     </partitioning>
     <connection>tpcdi</connection>
-    <schema/>
-    <table>factcashbalances</table>
+    <schema>public</schema>
+    <table>factwatches</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -991,24 +993,24 @@ ORDER BY accountid
     <return_field/>
     <fields>
       <field>
-        <column_name>sk_dateid</column_name>
-        <stream_name>sk_dateid</stream_name>
-      </field>
-      <field>
-        <column_name>sk_accountid</column_name>
-        <stream_name>sk_accountid</stream_name>
-      </field>
-      <field>
         <column_name>sk_customerid</column_name>
         <stream_name>sk_customerid</stream_name>
       </field>
       <field>
-        <column_name>batchid</column_name>
-        <stream_name>Batchid</stream_name>
+        <column_name>sk_securityid</column_name>
+        <stream_name>sk_securityid</stream_name>
       </field>
       <field>
-        <column_name>cash</column_name>
-        <stream_name>sum</stream_name>
+        <column_name>sk_dateid_dateplaced</column_name>
+        <stream_name>sk_dateid</stream_name>
+      </field>
+      <field>
+        <column_name>sk_dateid_dateremoved</column_name>
+        <stream_name>sk_dateid_1</stream_name>
+      </field>
+      <field>
+        <column_name>batchid</column_name>
+        <stream_name>Batchid</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -1020,13 +1022,13 @@ ORDER BY accountid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1332</xloc>
-      <yloc>265</yloc>
+      <xloc>1312</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter rows date</name>
+    <name>Filter rows</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1036,7 +1038,7 @@ ORDER BY accountid
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Calculator</send_true_to>
+    <send_true_to>Sort by  security, customer, date</send_true_to>
     <send_false_to/>
     <compare>
       <condition>
@@ -1044,14 +1046,14 @@ ORDER BY accountid
         <conditions>
           <condition>
             <negated>N</negated>
-            <leftvalue>CT_DTS</leftvalue>
+            <leftvalue>date</leftvalue>
             <function>&gt;=</function>
             <rightvalue>effectivedate</rightvalue>
           </condition>
           <condition>
             <negated>N</negated>
             <operator>AND</operator>
-            <leftvalue>CT_DTS</leftvalue>
+            <leftvalue>date</leftvalue>
             <function>&lt;</function>
             <rightvalue>enddate</rightvalue>
           </condition>
@@ -1067,16 +1069,16 @@ ORDER BY accountid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>369</xloc>
-      <yloc>264</yloc>
+      <xloc>848</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Merge Join accID</name>
+    <name>Merge join</name>
     <type>MergeJoin</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1084,13 +1086,13 @@ ORDER BY accountid
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort CT_CA_ID</step1>
-    <step2>DimAccount ordered</step2>
+    <step1>Sort by W_C_ID</step1>
+    <step2>DimCustomer sorted</step2>
     <keys_1>
-      <key>CT_CA_ID</key>
+      <key>W_C_ID</key>
     </keys_1>
     <keys_2>
-      <key>accountid</key>
+      <key>customerid</key>
     </keys_2>
     <attributes/>
     <cluster_schema/>
@@ -1101,13 +1103,85 @@ ORDER BY accountid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>262</xloc>
-      <yloc>264</yloc>
+      <xloc>400</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Merge Join date</name>
+    <name>Merge join 2</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Sort by W_S_SYM, W_C_ID and W_DTS</step1>
+    <step2>DimSecurity ordered</step2>
+    <keys_1>
+      <key>W_S_SYM</key>
+    </keys_1>
+    <keys_2>
+      <key>symbol</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join 3</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>ACTV</step1>
+    <step2>CNCL</step2>
+    <keys_1>
+      <key>sk_securityid</key>
+      <key>sk_customerid</key>
+      <key>sequence</key>
+    </keys_1>
+    <keys_2>
+      <key>sk_securityid</key>
+      <key>sk_customerid</key>
+      <key>sequence</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1072</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join 4</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -1118,10 +1192,10 @@ ORDER BY accountid
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>DimDate ordered</step1>
-    <step2>Sort rows date</step2>
+    <step1>Sort by date</step1>
+    <step2>Remove Time 2</step2>
     <keys_1>
-      <key>datevalue</key>
+      <key>date</key>
     </keys_1>
     <keys_2>
       <key>date</key>
@@ -1135,14 +1209,196 @@ ORDER BY accountid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>637</xloc>
-      <yloc>263</yloc>
+      <xloc>208</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select values 3</name>
-    <type>SelectValues</type>
+    <name>Remove Time</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>date</field_name>
+      <calc_type>REMOVE_TIME_FROM_DATE</calc_type>
+      <field_a>W_DTS</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>None</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remove Time 2</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>date</field_name>
+      <calc_type>REMOVE_TIME_FROM_DATE</calc_type>
+      <field_a>datevalue</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>None</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>144</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort by W_C_ID</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>W_C_ID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort by W_S_SYM, W_C_ID and W_DTS</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>W_S_SYM</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>W_C_ID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>W_DTS</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort by  security, customer, date</name>
+    <type>SortRows</type>
     <description/>
     <distribute>N</distribute>
     <custom_distribution/>
@@ -1151,46 +1407,6 @@ ORDER BY accountid
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <name>sk_dateid</name>
-      </field>
-      <field>
-        <name>sk_accountid</name>
-      </field>
-      <field>
-        <name>sk_customerid</name>
-      </field>
-      <field>
-        <name>CT_AMT_sum</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>841</xloc>
-      <yloc>265</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort CT_CA_ID</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
     <directory>%%java.io.tmpdir%%</directory>
     <prefix>out</prefix>
     <sort_size>1000000</sort_size>
@@ -1200,11 +1416,27 @@ ORDER BY accountid
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>CT_CA_ID</name>
+        <name>sk_securityid</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>sk_customerid</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>date</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
@@ -1217,63 +1449,13 @@ ORDER BY accountid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>145</xloc>
-      <yloc>264</yloc>
+      <xloc>848</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>sk_accountid</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>sk_dateid</name>
-        <ascending>Y</ascending>
-        <case_sensitive>Y</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1018</xloc>
-      <yloc>265</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows date</name>
+    <name>Sort by date</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1296,7 +1478,7 @@ ORDER BY accountid
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
+        <collator_strength>0</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
@@ -1309,14 +1491,14 @@ ORDER BY accountid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>530</xloc>
-      <yloc>264</yloc>
+      <xloc>160</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Unique rows</name>
-    <type>Unique</type>
+    <name>Switch W_ACTION</name>
+    <type>SwitchCase</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1325,11 +1507,23 @@ ORDER BY accountid
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <count_rows>N</count_rows>
-    <count_field/>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
-    <fields>      </fields>
+    <fieldname>W_ACTION</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>None</case_value_type>
+    <case_value_format/>
+    <case_value_decimal/>
+    <case_value_group/>
+    <default_target_step/>
+    <cases>
+      <case>
+        <value>ACTV</value>
+        <target_step>ACTV</target_step>
+      </case>
+      <case>
+        <value>CNCL</value>
+        <target_step>CNCL</target_step>
+      </case>
+    </cases>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1339,8 +1533,8 @@ ORDER BY accountid
       </output>
     </remotesteps>
     <GUI>
-      <xloc>936</xloc>
-      <yloc>265</yloc>
+      <xloc>960</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

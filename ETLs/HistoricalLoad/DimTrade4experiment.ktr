@@ -7,38 +7,399 @@
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>&#x2f;</directory>
+    <directory>/</directory>
     <parameters>
     </parameters>
     <log>
-<trans-log-table><connection/>
-<schema/>
-<table/>
-<size_limit_lines/>
-<interval/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
-<perf-log-table><connection/>
-<schema/>
-<table/>
-<interval/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
-<channel-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
-<step-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
-<metrics-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+      <trans-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -66,87 +427,252 @@
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
-  <created_user>-</created_user>
-  <created_date>2015&#x2f;09&#x2f;26 13&#x3a;21&#x3a;33.602</created_date>
-  <modified_user>-</modified_user>
-  <modified_date>2015&#x2f;09&#x2f;26 13&#x3a;21&#x3a;33.602</modified_date>
+    <created_user>-</created_user>
+    <created_date>2015/09/26 13:21:33.602</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2015/09/26 13:21:33.602</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
     <name>tpcdi</name>
-    <server>localhost</server>
+    <server>${tpcdi.host}</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>tpcdi</database>
+    <database>${tpcdi.dbname}</database>
     <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <username>${tpcdi.username}</username>
+    <password>${tpcdi.password}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>5432</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
     </attributes>
   </connection>
   <order>
-  <hop> <from>tradehistory</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>trade4experiment</from><to>Merge Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join</from><to>Add sequence</to><enabled>Y</enabled> </hop>
-  <hop> <from>DimSecurity</from><to>Filter is current for security</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter is current for account</from><to>Select values 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter is current for security</from><to>Select values 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join 2 2</from><to>Sort rows 6</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join 3</from><to>Sort rows 7</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 2</from><to>Sort rows 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 3</from><to>Sort rows 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 4</from><to>Sort rows 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows</from><to>Merge Join 2 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows 2</from><to>Merge Join 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows 3</from><to>Merge Join 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows 4</from><to>Merge Join 4 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows 5</from><to>Merge Join 2 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows 6</from><to>Merge Join 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows 7</from><to>Merge Join 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort rows 8</from><to>Merge Join 4 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>change type</from><to>Sort rows 8</to><enabled>Y</enabled> </hop>
-  <hop> <from>dimAccount</from><to>Filter is current for account</to><enabled>Y</enabled> </hop>
-  <hop> <from>status type</from><to>Sort rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>trade type</from><to>Select values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>New or update</from><to>New</to><enabled>Y</enabled> </hop>
-  <hop> <from>New or update</from><to>Update</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 2</from><to>CMPT or CNCL 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 2</from><to>SBMT 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>New</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add BatchId</from><to>Calculator</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calculator</from><to>changing types</to><enabled>Y</enabled> </hop>
-  <hop> <from>Group by</from><to>Merge Join 2 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Parallel</from><to>Merge Join 2 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add sequence</from><to>Group by</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add sequence</from><to>Parallel</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join 2 3</from><to>Sort rows 5</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join 4</from><to>Filter security date</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter security date</from><to>change type</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join 4 2</from><to>Filter account date</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter account date</from><to>Sort by id</to><enabled>Y</enabled> </hop>
-  <hop> <from>changing types</from><to>Remove</to><enabled>Y</enabled> </hop>
-  <hop> <from>Join</from><to>DimTrade</to><enabled>Y</enabled> </hop>
-  <hop> <from>SBMT 2</from><to>creating dates</to><enabled>Y</enabled> </hop>
-  <hop> <from>creating dates</from><to>Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>CMPT or CNCL 2</from><to>creating dates 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>creating dates 2</from><to>Join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Remove</from><to>New or update</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sort by id</from><to>Strings for date &#x28;Future SK_CreateDateID or SK_CloseDateID&#x29;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Strings for date &#x28;Future SK_CreateDateID or SK_CloseDateID&#x29;</from><to>Add BatchId</to><enabled>Y</enabled> </hop>
-  <hop> <from>Update</from><to>TradeExperiment</to><enabled>Y</enabled> </hop>
+    <hop>
+      <from>tradehistory</from>
+      <to>Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>trade</from>
+      <to>Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join</from>
+      <to>Add sequence</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 7</from>
+      <to>Merge Join 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 8</from>
+      <to>Merge Join 4 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>change type</from>
+      <to>Sort rows 8</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>New or update</from>
+      <to>New</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>New or update</from>
+      <to>Update</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>CMPT or CNCL 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>SBMT 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>New</from>
+      <to>Filter rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add BatchId</from>
+      <to>Calculator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculator</from>
+      <to>changing types</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Group by</from>
+      <to>Merge Join 2 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Parallel</from>
+      <to>Merge Join 2 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add sequence</from>
+      <to>Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add sequence</from>
+      <to>Parallel</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join 4</from>
+      <to>Filter security date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter security date</from>
+      <to>change type</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join 4 2</from>
+      <to>Filter account date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>changing types</from>
+      <to>Remove</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join</from>
+      <to>DimTrade</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SBMT 2</from>
+      <to>creating dates</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>creating dates</from>
+      <to>Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CMPT or CNCL 2</from>
+      <to>creating dates 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>creating dates 2</from>
+      <to>Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove</from>
+      <to>New or update</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Strings for date (Future SK_CreateDateID or SK_CloseDateID)</from>
+      <to>Add BatchId</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Update</from>
+      <to>TradeExperiment</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join 2 3</from>
+      <to>Sort rows 7</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup</from>
+      <to>Stream lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup 2</from>
+      <to>Strings for date (Future SK_CreateDateID or SK_CloseDateID)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter account date</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>trade type</from>
+      <to>Stream lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>status type</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>DimSecurity ordered by symbol</from>
+      <to>Merge Join 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>dimAccount order by accountid</from>
+      <to>Merge Join 4 2</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Add BatchId</name>
@@ -155,10 +681,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <name>BatchID</name>
@@ -173,14 +699,20 @@
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2135</xloc>
-      <yloc>515</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2080</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Add sequence</name>
     <type>Sequence</type>
@@ -188,28 +720,34 @@
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>surrogate key</valuename>
-      <use_database>N</use_database>
-      <connection>tpcdi</connection>
-      <schema/>
-      <seqname>SEQ_</seqname>
-      <use_counter>Y</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <valuename>surrogate key</valuename>
+    <use_database>N</use_database>
+    <connection>tpcdi</connection>
+    <schema/>
+    <seqname>SEQ_</seqname>
+    <use_counter>Y</use_counter>
+    <counter_name/>
+    <start_at>1</start_at>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>291</xloc>
       <yloc>519</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>CMPT or CNCL 2</name>
     <type>Dummy</type>
@@ -217,18 +755,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2732</xloc>
       <yloc>465</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Calculator</name>
     <type>Calculator</type>
@@ -236,72 +780,96 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <calculation><field_name>date_int</field_name>
-<calc_type>GET_ONLY_DIGITS</calc_type>
-<field_a>date</field_a>
-<field_b/>
-<field_c/>
-<value_type>Integer</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-       <calculation><field_name>time_int</field_name>
-<calc_type>GET_ONLY_DIGITS</calc_type>
-<field_a>time</field_a>
-<field_b/>
-<field_c/>
-<value_type>Integer</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask>&#x23;</conversion_mask>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>N</failIfNoFile>
+    <calculation>
+      <field_name>date_int</field_name>
+      <calc_type>GET_ONLY_DIGITS</calc_type>
+      <field_a>date</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>time_int</field_name>
+      <calc_type>GET_ONLY_DIGITS</calc_type>
+      <field_a>time</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask>#</conversion_mask>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2215</xloc>
       <yloc>516</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>DimSecurity</name>
+    <name>DimSecurity ordered by symbol</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>tpcdi</connection>
-    <sql>SELECT &#x2a; FROM dimsecurity</sql>
+    <sql>SELECT
+  sk_securityid
+, symbol
+, sk_companyid
+, effectivedate
+, enddate
+FROM dimsecurity
+where iscurrent
+order by symbol
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1046</xloc>
-      <yloc>194</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>688</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>DimTrade</name>
     <type>TableOutput</type>
@@ -309,10 +877,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>tpcdi</connection>
     <schema/>
     <table>dimtrade</table>
@@ -331,99 +899,105 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>tradeid</column_name>
-          <stream_name>T_ID</stream_name>
-        </field>
-        <field>
-          <column_name>cashflag</column_name>
-          <stream_name>T_IS_CASH</stream_name>
-        </field>
-        <field>
-          <column_name>quantity</column_name>
-          <stream_name>T_QTY</stream_name>
-        </field>
-        <field>
-          <column_name>bidprice</column_name>
-          <stream_name>T_BID_PRICE</stream_name>
-        </field>
-        <field>
-          <column_name>executedby</column_name>
-          <stream_name>T_EXEC_NAME</stream_name>
-        </field>
-        <field>
-          <column_name>tradeprice</column_name>
-          <stream_name>T_TRADE_PRICE</stream_name>
-        </field>
-        <field>
-          <column_name>fee</column_name>
-          <stream_name>T_CHRG</stream_name>
-        </field>
-        <field>
-          <column_name>commission</column_name>
-          <stream_name>T_COMM</stream_name>
-        </field>
-        <field>
-          <column_name>tax</column_name>
-          <stream_name>T_TAX</stream_name>
-        </field>
-        <field>
-          <column_name>batchid</column_name>
-          <stream_name>BatchID</stream_name>
-        </field>
-        <field>
-          <column_name>sk_createdateid</column_name>
-          <stream_name>SK_CreateDateID</stream_name>
-        </field>
-        <field>
-          <column_name>sk_createtimeid</column_name>
-          <stream_name>SK_CreateTimeID</stream_name>
-        </field>
-        <field>
-          <column_name>sk_closedateid</column_name>
-          <stream_name>SK_CloseDateID</stream_name>
-        </field>
-        <field>
-          <column_name>sk_closetimeid</column_name>
-          <stream_name>SK_CloseTimeID</stream_name>
-        </field>
-        <field>
-          <column_name>sk_securityid</column_name>
-          <stream_name>sk_securityid</stream_name>
-        </field>
-        <field>
-          <column_name>sk_companyid</column_name>
-          <stream_name>sk_companyid</stream_name>
-        </field>
-        <field>
-          <column_name>sk_customerid</column_name>
-          <stream_name>sk_customerid</stream_name>
-        </field>
-        <field>
-          <column_name>sk_accountid</column_name>
-          <stream_name>sk_accountid</stream_name>
-        </field>
-        <field>
-          <column_name>sk_brokerid</column_name>
-          <stream_name>sk_brokerid</stream_name>
-        </field>
-        <field>
-          <column_name>dt_type</column_name>
-          <stream_name>tt_name</stream_name>
-        </field>
-        <field>
-          <column_name>status</column_name>
-          <stream_name>st_name</stream_name>
-        </field>
+      <field>
+        <column_name>tradeid</column_name>
+        <stream_name>T_ID</stream_name>
+      </field>
+      <field>
+        <column_name>cashflag</column_name>
+        <stream_name>T_IS_CASH</stream_name>
+      </field>
+      <field>
+        <column_name>quantity</column_name>
+        <stream_name>T_QTY</stream_name>
+      </field>
+      <field>
+        <column_name>bidprice</column_name>
+        <stream_name>T_BID_PRICE</stream_name>
+      </field>
+      <field>
+        <column_name>executedby</column_name>
+        <stream_name>T_EXEC_NAME</stream_name>
+      </field>
+      <field>
+        <column_name>tradeprice</column_name>
+        <stream_name>T_TRADE_PRICE</stream_name>
+      </field>
+      <field>
+        <column_name>fee</column_name>
+        <stream_name>T_CHRG</stream_name>
+      </field>
+      <field>
+        <column_name>commission</column_name>
+        <stream_name>T_COMM</stream_name>
+      </field>
+      <field>
+        <column_name>tax</column_name>
+        <stream_name>T_TAX</stream_name>
+      </field>
+      <field>
+        <column_name>batchid</column_name>
+        <stream_name>BatchID</stream_name>
+      </field>
+      <field>
+        <column_name>sk_createdateid</column_name>
+        <stream_name>SK_CreateDateID</stream_name>
+      </field>
+      <field>
+        <column_name>sk_createtimeid</column_name>
+        <stream_name>SK_CreateTimeID</stream_name>
+      </field>
+      <field>
+        <column_name>sk_closedateid</column_name>
+        <stream_name>SK_CloseDateID</stream_name>
+      </field>
+      <field>
+        <column_name>sk_closetimeid</column_name>
+        <stream_name>SK_CloseTimeID</stream_name>
+      </field>
+      <field>
+        <column_name>sk_securityid</column_name>
+        <stream_name>sk_securityid</stream_name>
+      </field>
+      <field>
+        <column_name>sk_companyid</column_name>
+        <stream_name>sk_companyid</stream_name>
+      </field>
+      <field>
+        <column_name>sk_customerid</column_name>
+        <stream_name>sk_customerid</stream_name>
+      </field>
+      <field>
+        <column_name>sk_accountid</column_name>
+        <stream_name>sk_accountid</stream_name>
+      </field>
+      <field>
+        <column_name>sk_brokerid</column_name>
+        <stream_name>sk_brokerid</stream_name>
+      </field>
+      <field>
+        <column_name>dt_type</column_name>
+        <stream_name>tt_name</stream_name>
+      </field>
+      <field>
+        <column_name>status</column_name>
+        <stream_name>st_name</stream_name>
+      </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>3166</xloc>
       <yloc>397</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Filter account date</name>
     <type>FilterRows</type>
@@ -431,98 +1005,46 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Sort by id</send_true_to>
-<send_false_to/>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Stream lookup</send_true_to>
+    <send_false_to/>
     <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>TH_DTS</leftvalue>
-   <function>&#x3e;&#x3d;</function>
-   <rightvalue>effectivedate_1</rightvalue>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>TH_DTS</leftvalue>
-   <function>&#x3c;</function>
-   <rightvalue>enddate_1</rightvalue>
-   </condition>
-  </conditions>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>TH_DTS</leftvalue>
+            <function>&gt;=</function>
+            <rightvalue>effectivedate</rightvalue>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>TH_DTS</leftvalue>
+            <function>&lt;</function>
+            <rightvalue>enddate</rightvalue>
+          </condition>
+        </conditions>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1581</xloc>
-      <yloc>516</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1216</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Filter is current for account</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to/>
-<send_false_to/>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>iscurrent</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Boolean</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1484</xloc>
-      <yloc>287</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Filter is current for security</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to/>
-<send_false_to/>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>iscurrent</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Boolean</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1046</xloc>
-      <yloc>316</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Filter rows 2</name>
     <type>FilterRows</type>
@@ -530,40 +1052,64 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>SBMT 2</send_true_to>
-<send_false_to>CMPT or CNCL 2</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>SBMT 2</send_true_to>
+    <send_false_to>CMPT or CNCL 2</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>TH_ST_ID</leftvalue>
-   <function>&#x3d;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>String</type><text>SBMT</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>OR</operator>
-   <leftvalue>TH_ST_ID</leftvalue>
-   <function>&#x3d;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>String</type><text>PNDG</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
-  </conditions>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>TH_ST_ID</leftvalue>
+            <function>=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>SBMT</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>OR</operator>
+            <leftvalue>TH_ST_ID</leftvalue>
+            <function>=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>PNDG</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+        </conditions>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2604</xloc>
       <yloc>415</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Filter security date</name>
     <type>FilterRows</type>
@@ -571,40 +1117,46 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>change type</send_true_to>
-<send_false_to/>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>change type</send_true_to>
+    <send_false_to/>
     <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>TH_DTS</leftvalue>
-   <function>&#x3e;&#x3d;</function>
-   <rightvalue>effectivedate</rightvalue>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>TH_DTS</leftvalue>
-   <function>&#x3c;</function>
-   <rightvalue>enddate</rightvalue>
-   </condition>
-  </conditions>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>TH_DTS</leftvalue>
+            <function>&gt;=</function>
+            <rightvalue>effectivedate</rightvalue>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>TH_DTS</leftvalue>
+            <function>&lt;</function>
+            <rightvalue>enddate</rightvalue>
+          </condition>
+        </conditions>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1145</xloc>
-      <yloc>514</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Group by</name>
     <type>GroupBy</type>
@@ -612,39 +1164,45 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <all_rows>N</all_rows>
-      <ignore_aggregate>N</ignore_aggregate>
-      <field_ignore/>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>grp</prefix>
-      <add_linenr>N</add_linenr>
-      <linenr_fieldname/>
-      <give_back_row>N</give_back_row>
-      <group>
-        <field>
-          <name>T_ID</name>
-        </field>
-      </group>
-      <fields>
-        <field>
-          <aggregate>Min_Sur_K</aggregate>
-          <subject>surrogate key</subject>
-          <type>MIN</type>
-          <valuefield/>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <all_rows>N</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore/>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>N</add_linenr>
+    <linenr_fieldname/>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>T_ID</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>Min_Sur_K</aggregate>
+        <subject>surrogate key</subject>
+        <type>MIN</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>390</xloc>
       <yloc>434</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Join</name>
     <type>Dummy</type>
@@ -652,18 +1210,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2960</xloc>
       <yloc>397</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Merge Join</name>
     <type>MergeJoin</type>
@@ -671,55 +1235,33 @@
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>INNER</join_type>
-<step1>tradehistory</step1>
-<step2>trade4experiment</step2>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>tradehistory</step1>
+    <step2>trade</step2>
     <keys_1>
       <key>TH_T_ID</key>
     </keys_1>
     <keys_2>
       <key>T_ID</key>
     </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>185</xloc>
       <yloc>518</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Merge Join 2 2</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>INNER</join_type>
-<step1>Sort rows 5</step1>
-<step2>Sort rows</step2>
-    <keys_1>
-      <key>TH_ST_ID</key>
-    </keys_1>
-    <keys_2>
-      <key>st_id</key>
-    </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>681</xloc>
-      <yloc>516</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Merge Join 2 3</name>
     <type>MergeJoin</type>
@@ -727,55 +1269,33 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>INNER</join_type>
-<step1>Parallel</step1>
-<step2>Group by</step2>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Parallel</step1>
+    <step2>Group by</step2>
     <keys_1>
       <key>T_ID</key>
     </keys_1>
     <keys_2>
       <key>T_ID</key>
     </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>477</xloc>
       <yloc>516</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Merge Join 3</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>INNER</join_type>
-<step1>Sort rows 2</step1>
-<step2>Sort rows 6</step2>
-    <keys_1>
-      <key>tt_id</key>
-    </keys_1>
-    <keys_2>
-      <key>T_TT_ID</key>
-    </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>863</xloc>
-      <yloc>518</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Merge Join 4</name>
     <type>MergeJoin</type>
@@ -783,27 +1303,33 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>INNER</join_type>
-<step1>Sort rows 7</step1>
-<step2>Sort rows 3</step2>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Sort rows 7</step1>
+    <step2>DimSecurity ordered by symbol</step2>
     <keys_1>
       <key>T_S_SYMB</key>
     </keys_1>
     <keys_2>
       <key>symbol</key>
     </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1044</xloc>
-      <yloc>514</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>688</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Merge Join 4 2</name>
     <type>MergeJoin</type>
@@ -811,27 +1337,33 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>INNER</join_type>
-<step1>Sort rows 8</step1>
-<step2>Sort rows 4</step2>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Sort rows 8</step1>
+    <step2>dimAccount order by accountid</step2>
     <keys_1>
       <key>T_CA_ID</key>
     </keys_1>
     <keys_2>
       <key>accountid</key>
     </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1483</xloc>
-      <yloc>516</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>New</name>
     <type>Dummy</type>
@@ -839,18 +1371,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2442</xloc>
       <yloc>415</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>New or update</name>
     <type>FilterRows</type>
@@ -858,40 +1396,46 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>New</send_true_to>
-<send_false_to>Update</send_false_to>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>New</send_true_to>
+    <send_false_to>Update</send_false_to>
     <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>Min_Sur_K</leftvalue>
-   <function>&#x3d;</function>
-   <rightvalue>surrogate key</rightvalue>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>T_ID_1</leftvalue>
-   <function>&#x3d;</function>
-   <rightvalue>T_ID</rightvalue>
-   </condition>
-  </conditions>
- </condition>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Min_Sur_K</leftvalue>
+            <function>=</function>
+            <rightvalue>surrogate key</rightvalue>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>T_ID_1</leftvalue>
+            <function>=</function>
+            <rightvalue>T_ID</rightvalue>
+          </condition>
+        </conditions>
+      </condition>
     </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2445</xloc>
       <yloc>516</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Parallel</name>
     <type>Dummy</type>
@@ -899,18 +1443,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>394</xloc>
       <yloc>582</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Remove</name>
     <type>SelectValues</type>
@@ -918,147 +1468,123 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>tt_name</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>TH_T_ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>TH_DTS</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>TH_ST_ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_DTS</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_ST_ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_TT_ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_IS_CASH</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_S_SYMB</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_QTY</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_BID_PRICE</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_CA_ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_EXEC_NAME</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_TRADE_PRICE</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_CHRG</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_COMM</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_TAX</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>surrogate key</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>T_ID_1</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Min_Sur_K</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>st_name</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>sk_securityid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>symbol</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>sk_companyid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>sk_accountid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>sk_brokerid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>sk_customerid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>accountid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BatchID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>date_int</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>time_int</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2368</xloc>
-      <yloc>516</yloc>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>tt_name</name>
+      </field>
+      <field>
+        <name>TH_T_ID</name>
+      </field>
+      <field>
+        <name>TH_DTS</name>
+      </field>
+      <field>
+        <name>TH_ST_ID</name>
+      </field>
+      <field>
+        <name>T_ID</name>
+      </field>
+      <field>
+        <name>T_DTS</name>
+      </field>
+      <field>
+        <name>T_ST_ID</name>
+      </field>
+      <field>
+        <name>T_TT_ID</name>
+      </field>
+      <field>
+        <name>T_IS_CASH</name>
+      </field>
+      <field>
+        <name>T_S_SYMB</name>
+      </field>
+      <field>
+        <name>T_QTY</name>
+      </field>
+      <field>
+        <name>T_BID_PRICE</name>
+      </field>
+      <field>
+        <name>T_CA_ID</name>
+      </field>
+      <field>
+        <name>T_EXEC_NAME</name>
+      </field>
+      <field>
+        <name>T_TRADE_PRICE</name>
+      </field>
+      <field>
+        <name>T_CHRG</name>
+      </field>
+      <field>
+        <name>T_COMM</name>
+      </field>
+      <field>
+        <name>T_TAX</name>
+      </field>
+      <field>
+        <name>surrogate key</name>
+      </field>
+      <field>
+        <name>T_ID_1</name>
+      </field>
+      <field>
+        <name>Min_Sur_K</name>
+      </field>
+      <field>
+        <name>st_name</name>
+      </field>
+      <field>
+        <name>sk_securityid</name>
+      </field>
+      <field>
+        <name>symbol</name>
+      </field>
+      <field>
+        <name>sk_companyid</name>
+      </field>
+      <field>
+        <name>sk_accountid</name>
+      </field>
+      <field>
+        <name>sk_brokerid</name>
+      </field>
+      <field>
+        <name>sk_customerid</name>
+      </field>
+      <field>
+        <name>accountid</name>
+      </field>
+      <field>
+        <name>BatchID</name>
+      </field>
+      <field>
+        <name>date_int</name>
+      </field>
+      <field>
+        <name>time_int</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2320</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>SBMT 2</name>
     <type>Dummy</type>
@@ -1066,368 +1592,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2736</xloc>
       <yloc>335</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>tt_id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>tt_name</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>860</xloc>
-      <yloc>343</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 3</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>sk_securityid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>symbol</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>sk_companyid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>effectivedate</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>enddate</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1048</xloc>
-      <yloc>374</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 4</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>sk_accountid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>sk_brokerid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>sk_customerid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>accountid</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>effectivedate</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>enddate</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1484</xloc>
-      <yloc>358</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort by id</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>TH_T_ID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1676</xloc>
-      <yloc>515</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>st_id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>681</xloc>
-      <yloc>420</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>tt_id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>860</xloc>
-      <yloc>422</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows 3</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>symbol</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1046</xloc>
-      <yloc>445</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows 4</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>accountid</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1482</xloc>
-      <yloc>432</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows 5</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>TH_ST_ID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>576</xloc>
-      <yloc>516</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows 6</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>T_TT_ID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>778</xloc>
-      <yloc>517</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort rows 7</name>
     <type>SortRows</type>
@@ -1435,33 +1617,41 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>T_S_SYMB</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>967</xloc>
-      <yloc>514</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Sort rows 8</name>
     <type>SortRows</type>
@@ -1469,44 +1659,136 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
     <fields>
       <field>
         <name>T_CA_ID</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
         <presorted>N</presorted>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1372</xloc>
-      <yloc>516</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1008</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>Strings for date &#x28;Future SK_CreateDateID or SK_CloseDateID&#x29;</name>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>status type</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>TH_ST_ID</name>
+        <field>st_id</field>
+      </key>
+      <value>
+        <name>st_name</name>
+        <rename>st_name</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1440</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stream lookup 2</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>trade type</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>T_TT_ID</name>
+        <field>tt_id</field>
+      </key>
+      <value>
+        <name>tt_name</name>
+        <rename>tt_name</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1616</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Strings for date (Future SK_CreateDateID or SK_CloseDateID)</name>
     <type>StringCut</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
         <in_stream_name>TH_DTS</in_stream_name>
@@ -1521,14 +1803,20 @@
         <cut_to>19</cut_to>
       </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1900</xloc>
       <yloc>515</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>TradeExperiment</name>
     <type>TableOutput</type>
@@ -1536,10 +1824,10 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>tpcdi</connection>
     <schema/>
     <table>dimtradeforexperiment</table>
@@ -1558,95 +1846,101 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>tradeid</column_name>
-          <stream_name>T_ID</stream_name>
-        </field>
-        <field>
-          <column_name>date_int</column_name>
-          <stream_name>date_int</stream_name>
-        </field>
-        <field>
-          <column_name>sk_brokerid</column_name>
-          <stream_name>sk_brokerid</stream_name>
-        </field>
-        <field>
-          <column_name>time_int</column_name>
-          <stream_name>time_int</stream_name>
-        </field>
-        <field>
-          <column_name>sk_securityid</column_name>
-          <stream_name>sk_securityid</stream_name>
-        </field>
-        <field>
-          <column_name>sk_companyid</column_name>
-          <stream_name>sk_companyid</stream_name>
-        </field>
-        <field>
-          <column_name>sk_accountid</column_name>
-          <stream_name>sk_accountid</stream_name>
-        </field>
-        <field>
-          <column_name>sk_customerid</column_name>
-          <stream_name>sk_customerid</stream_name>
-        </field>
-        <field>
-          <column_name>batchid</column_name>
-          <stream_name>BatchID</stream_name>
-        </field>
-        <field>
-          <column_name>cashflag</column_name>
-          <stream_name>T_IS_CASH</stream_name>
-        </field>
-        <field>
-          <column_name>quantity</column_name>
-          <stream_name>T_QTY</stream_name>
-        </field>
-        <field>
-          <column_name>bidprice</column_name>
-          <stream_name>T_BID_PRICE</stream_name>
-        </field>
-        <field>
-          <column_name>executedby</column_name>
-          <stream_name>T_EXEC_NAME</stream_name>
-        </field>
-        <field>
-          <column_name>tradeprice</column_name>
-          <stream_name>T_TRADE_PRICE</stream_name>
-        </field>
-        <field>
-          <column_name>tax</column_name>
-          <stream_name>T_TAX</stream_name>
-        </field>
-        <field>
-          <column_name>commission</column_name>
-          <stream_name>T_COMM</stream_name>
-        </field>
-        <field>
-          <column_name>fee</column_name>
-          <stream_name>T_CHRG</stream_name>
-        </field>
-        <field>
-          <column_name>status</column_name>
-          <stream_name>st_name</stream_name>
-        </field>
-        <field>
-          <column_name>dt_type</column_name>
-          <stream_name>tt_name</stream_name>
-        </field>
-        <field>
-          <column_name>th_st_id</column_name>
-          <stream_name>TH_ST_ID</stream_name>
-        </field>
+      <field>
+        <column_name>tradeid</column_name>
+        <stream_name>T_ID</stream_name>
+      </field>
+      <field>
+        <column_name>date_int</column_name>
+        <stream_name>date_int</stream_name>
+      </field>
+      <field>
+        <column_name>sk_brokerid</column_name>
+        <stream_name>sk_brokerid</stream_name>
+      </field>
+      <field>
+        <column_name>time_int</column_name>
+        <stream_name>time_int</stream_name>
+      </field>
+      <field>
+        <column_name>sk_securityid</column_name>
+        <stream_name>sk_securityid</stream_name>
+      </field>
+      <field>
+        <column_name>sk_companyid</column_name>
+        <stream_name>sk_companyid</stream_name>
+      </field>
+      <field>
+        <column_name>sk_accountid</column_name>
+        <stream_name>sk_accountid</stream_name>
+      </field>
+      <field>
+        <column_name>sk_customerid</column_name>
+        <stream_name>sk_customerid</stream_name>
+      </field>
+      <field>
+        <column_name>batchid</column_name>
+        <stream_name>BatchID</stream_name>
+      </field>
+      <field>
+        <column_name>cashflag</column_name>
+        <stream_name>T_IS_CASH</stream_name>
+      </field>
+      <field>
+        <column_name>quantity</column_name>
+        <stream_name>T_QTY</stream_name>
+      </field>
+      <field>
+        <column_name>bidprice</column_name>
+        <stream_name>T_BID_PRICE</stream_name>
+      </field>
+      <field>
+        <column_name>executedby</column_name>
+        <stream_name>T_EXEC_NAME</stream_name>
+      </field>
+      <field>
+        <column_name>tradeprice</column_name>
+        <stream_name>T_TRADE_PRICE</stream_name>
+      </field>
+      <field>
+        <column_name>tax</column_name>
+        <stream_name>T_TAX</stream_name>
+      </field>
+      <field>
+        <column_name>commission</column_name>
+        <stream_name>T_COMM</stream_name>
+      </field>
+      <field>
+        <column_name>fee</column_name>
+        <stream_name>T_CHRG</stream_name>
+      </field>
+      <field>
+        <column_name>status</column_name>
+        <stream_name>st_name</stream_name>
+      </field>
+      <field>
+        <column_name>dt_type</column_name>
+        <stream_name>tt_name</stream_name>
+      </field>
+      <field>
+        <column_name>th_st_id</column_name>
+        <stream_name>TH_ST_ID</stream_name>
+      </field>
     </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2576</xloc>
       <yloc>647</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>Update</name>
     <type>Dummy</type>
@@ -1654,18 +1948,24 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2446</xloc>
       <yloc>647</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>change type</name>
     <type>SelectValues</type>
@@ -1673,12 +1973,20 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>T_CA_ID</name>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>effectivedate</name>
+      </remove>
+      <remove>
+        <name>enddate</name>
+      </remove>
+      <meta>
+        <name>T_CA_ID</name>
         <rename>T_CA_ID</rename>
         <type>Integer</type>
         <length>-2</length>
@@ -1693,14 +2001,22 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1266</xloc>
-      <yloc>515</yloc>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>912</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>changing types</name>
     <type>SelectValues</type>
@@ -1708,12 +2024,14 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>T_ID</name>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>T_ID</name>
         <rename>T_ID</rename>
         <type>Integer</type>
         <length>-2</length>
@@ -1728,7 +2046,9 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>T_IS_CASH</name>
+      </meta>
+      <meta>
+        <name>T_IS_CASH</name>
         <rename>T_IS_CASH</rename>
         <type>Boolean</type>
         <length>-2</length>
@@ -1743,7 +2063,9 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>T_QTY</name>
+      </meta>
+      <meta>
+        <name>T_QTY</name>
         <rename>T_QTY</rename>
         <type>Integer</type>
         <length>-2</length>
@@ -1758,11 +2080,13 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>T_BID_PRICE</name>
+      </meta>
+      <meta>
+        <name>T_BID_PRICE</name>
         <rename>T_BID_PRICE</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
+        <type>Number</type>
+        <length>8</length>
+        <precision>2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -1773,11 +2097,13 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>T_TRADE_PRICE</name>
+      </meta>
+      <meta>
+        <name>T_TRADE_PRICE</name>
         <rename>T_TRADE_PRICE</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
+        <type>Number</type>
+        <length>8</length>
+        <precision>2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -1788,11 +2114,13 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>T_TAX</name>
+      </meta>
+      <meta>
+        <name>T_TAX</name>
         <rename>T_TAX</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
+        <type>Number</type>
+        <length>10</length>
+        <precision>2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -1803,11 +2131,13 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>T_COMM</name>
+      </meta>
+      <meta>
+        <name>T_COMM</name>
         <rename>T_COMM</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
+        <type>Number</type>
+        <length>10</length>
+        <precision>2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -1818,11 +2148,13 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>T_CHRG</name>
+      </meta>
+      <meta>
+        <name>T_CHRG</name>
         <rename>T_CHRG</rename>
         <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
+        <length>10</length>
+        <precision>2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -1833,7 +2165,9 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>time_int</name>
+      </meta>
+      <meta>
+        <name>time_int</name>
         <rename>time_int</rename>
         <type>Integer</type>
         <length>-2</length>
@@ -1848,14 +2182,22 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2293</xloc>
-      <yloc>516</yloc>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2288</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>creating dates</name>
     <type>ScriptValueMod</type>
@@ -1863,47 +2205,76 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var SK_CreateDateID&#x3b;&#xa;var SK_CreateTimeID&#x3b;&#xa;var SK_CloseDateID&#x3b;&#xa;var SK_CloseTimeID&#x3b;&#xa;&#xa;SK_CreateDateID &#x3d; date_int&#x3b;&#xa;SK_CreateTimeID &#x3d; time_int&#x3b;&#xa;SK_CloseDateID &#x3d; null&#x3b;&#xa;SK_CloseTimeID &#x3d; null&#x3b;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>SK_CreateDateID</name>
+        <jsScript_script>var SK_CreateDateID;
+var SK_CreateTimeID;
+var SK_CloseDateID;
+var SK_CloseTimeID;
+
+SK_CreateDateID = date_int;
+SK_CreateTimeID = time_int;
+SK_CloseDateID = null;
+SK_CloseTimeID = null;
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>SK_CreateDateID</name>
         <rename>SK_CreateDateID</rename>
         <type>Integer</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>SK_CreateTimeID</name>
+      </field>
+      <field>
+        <name>SK_CreateTimeID</name>
         <rename>SK_CreateTimeID</rename>
         <type>Integer</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>SK_CloseDateID</name>
+      </field>
+      <field>
+        <name>SK_CloseDateID</name>
         <rename>SK_CloseDateID</rename>
         <type>Integer</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>SK_CloseTimeID</name>
+      </field>
+      <field>
+        <name>SK_CloseTimeID</name>
         <rename>SK_CloseTimeID</rename>
         <type>Integer</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2875</xloc>
       <yloc>335</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>creating dates 2</name>
     <type>ScriptValueMod</type>
@@ -1911,142 +2282,166 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var SK_CreateDateID&#x3b;&#xa;var SK_CreateTimeID&#x3b;&#xa;var SK_CloseDateID&#x3b;&#xa;var SK_CloseTimeID&#x3b;&#xa;&#xa;SK_CloseDateID &#x3d; date_int&#x3b;&#xa;SK_CloseTimeID &#x3d; time_int&#x3b;&#xa;SK_CreateDateID &#x3d; null&#x3b;&#xa;SK_CreateTimeID &#x3d; null&#x3b;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>SK_CreateDateID</name>
+        <jsScript_script>var SK_CreateDateID;
+var SK_CreateTimeID;
+var SK_CloseDateID;
+var SK_CloseTimeID;
+
+SK_CloseDateID = date_int;
+SK_CloseTimeID = time_int;
+SK_CreateDateID = null;
+SK_CreateTimeID = null;
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>SK_CreateDateID</name>
         <rename>SK_CreateDateID</rename>
         <type>Integer</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>SK_CreateTimeID</name>
+      </field>
+      <field>
+        <name>SK_CreateTimeID</name>
         <rename>SK_CreateTimeID</rename>
         <type>Integer</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>SK_CloseDateID</name>
+      </field>
+      <field>
+        <name>SK_CloseDateID</name>
         <rename>SK_CloseDateID</rename>
         <type>Integer</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>SK_CloseTimeID</name>
+      </field>
+      <field>
+        <name>SK_CloseTimeID</name>
         <rename>SK_CloseTimeID</rename>
         <type>Integer</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>2885</xloc>
       <yloc>465</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>dimAccount</name>
+    <name>dimAccount order by accountid</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>tpcdi</connection>
-    <sql>SELECT &#x2a; FROM dimaccount</sql>
+    <sql>SELECT
+  sk_accountid
+, accountid
+, sk_brokerid
+, sk_customerid
+, effectivedate
+, enddate
+FROM dimaccount
+where iscurrent
+order by accountid</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1484</xloc>
-      <yloc>206</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
     <name>status type</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>tpcdi</connection>
-    <sql>SELECT &#x2a; FROM statustype</sql>
+    <sql>SELECT * FROM statustype</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>681</xloc>
-      <yloc>298</yloc>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1440</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step>
-    <name>trade type</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>tpcdi</connection>
-    <sql>SELECT &#x2a; FROM tradetype</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>860</xloc>
-      <yloc>257</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>trade4experiment</name>
+    <name>trade</name>
     <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <accept_filenames>N</accept_filenames>
     <passing_through_fields>N</passing_through_fields>
     <accept_field/>
     <accept_stepname/>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
+    <separator>|</separator>
+    <enclosure>"</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
     <escapechar/>
     <header>Y</header>
@@ -2066,12 +2461,13 @@
     <rownum_field/>
     <format>DOS</format>
     <encoding/>
+    <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;tpcdi.input.path&#x7d;&#x2f;trade4experiment.txt</name>
+      <name>${tpcdi.input.path}/Batch1/Trade.txt</name>
       <filemask/>
       <exclude_filemask/>
-      <file_required>N</file_required>
+      <file_required>Y</file_required>
       <include_subfolders>N</include_subfolders>
       <type>CSV</type>
       <compression>None</compression>
@@ -2315,14 +2711,52 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>184</xloc>
       <yloc>406</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
+  <step>
+    <name>trade type</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>tpcdi</connection>
+    <sql>SELECT * FROM tradetype</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1616</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>tradehistory</name>
     <type>TextFileInput</type>
@@ -2330,16 +2764,16 @@
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <accept_filenames>N</accept_filenames>
     <passing_through_fields>N</passing_through_fields>
     <accept_field/>
     <accept_stepname/>
-    <separator>&#x7c;</separator>
-    <enclosure>&#x22;</enclosure>
+    <separator>|</separator>
+    <enclosure>"</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
     <escapechar/>
     <header>N</header>
@@ -2359,9 +2793,10 @@
     <rownum_field/>
     <format>DOS</format>
     <encoding/>
+    <length/>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;tpcdi.input.path&#x7d;&#x2f;Batch1&#x2f;TradeHistory.txt</name>
+      <name>${tpcdi.input.path}/Batch1/TradeHistory.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -2443,18 +2878,24 @@
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>185</xloc>
       <yloc>612</yloc>
       <draw>Y</draw>
-      </GUI>
-    </step>
-
+    </GUI>
+  </step>
   <step_error_handling>
   </step_error_handling>
-   <slave-step-copy-partition-distribution>
-</slave-step-copy-partition-distribution>
-   <slave_transformation>N</slave_transformation>
-
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+  <attributes/>
 </transformation>
