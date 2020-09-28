@@ -5,6 +5,8 @@ An implementation of the ETL flows found in the TPC-DI documentation.
 Developer: Anton Kartashov
 Supervisor: Vasileios Theodorou
 
+PDI v8.3
+
 ## Execution
 
 ### Historical Load
